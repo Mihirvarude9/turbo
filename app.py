@@ -1,5 +1,4 @@
 
-
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -58,7 +57,7 @@ app.mount("/turbo/images", StaticFiles(directory=OUTPUT_DIR), name="turbo-images
 class PromptRequest(BaseModel):
     prompt: str
 
-# === /turbo endpoint ===
+# === /medium endpoint ===
 @app.post("/turbo")
 async def generate_turbo(request: Request, body: PromptRequest):
     api_key = request.headers.get("x-api-key")
